@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dual</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="shortcut icon" href="../imagens/logo_dual.png" type="image/x-icon">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <a href="index.html">
+                <img src="../imagens/logo_dual.png" alt="Logotipo Dual" class="logo">
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="guia.html">Guia de Ensino</a></li>
+                    <li><a href="atividades.html">Atividades</a></li>
+                    <li><a href="faqs.html">Feedbacks</a></li>
+                    <li><a href="sobre.html">Sobre nós</a></li>
+                </ul>
+            </nav>
+
+            <div class="botao">
+                <button id="b1"> <a href="login.html">Login</a></button>
+                <button id="b2"><a href="cadastro.html">Cadastre-se</a></button>
+            </div>
+        </div>
+        </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="main">
+            <h1 id="nome"></h1>
+                   
+            <script>
+                document.addEventListener('DOMContentLoaded', function () {
+                    let nome_ = localStorage.getItem('nome') || '';
+                    if (nome_ !== '') {
+                        let score_ = localStorage.getItem('score') || '0';
+                        document.getElementById('nome').textContent = "Olá, " + nome_ + "!";
+                    }
+                });
+            </script>
+
+            <h2>DUAL</h2>
+            <p id="p1">Descubra e desenvolva o melhor de si</p>
+            <p id="p2">
+                Oferecemos guias práticos, e uma comunidade de apoio dedicada a transformar desafios em conquistas.
+                Navegue pelo nosso site e descubra como podemos ajudar você a alcançar novos horizontes.
+            </p>
+            <img src="../imagens/Illustration_1.png" alt="Ilustração">
+
+
+            </div>
+        </section>
+    </main>
+    <footer>
+        <img src="../imagens/coracao.png" alt="Coração" class="coracao">
+        <p>Feito com amor por Alice, Gustavo, Lorrana e Rafaela</p>
+    </footer>
+</body>
+
+</html>

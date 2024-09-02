@@ -1,0 +1,111 @@
+.puzzle-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5px;
+    max-width: 300px;
+    margin: 20px auto;
+}
+
+.puzzle-piece {
+    width: 100%;
+    padding-top: 100%;
+    background-size: 300%;
+    cursor: pointer;
+}
+
+.empty {
+    background: none;
+    cursor: default;
+}
+
+body {
+    background-color: #d0f6c5;
+    font: 'Alice';
+    line-height: 1.6;
+    margin: 70px;
+    padding: 0;
+    overflow-x: hidden;
+
+}
+
+
+
+.container {
+    height: 110px;
+    margin-top: 50px;
+}
+
+
+h2 {
+    color: #317D24;
+    font-size: 50px;
+}
+
+.main {
+    max-width: 800px;
+    color: #317D24;
+    font-size: 20px;
+    margin: 20px;
+}
+
+.main img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 20px;
+}
+
+.email {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.email input[type="email"] {
+    padding: 12px;
+    font-size: 18px;
+    border: 1px solid #317D24;
+    flex: 1;
+    margin-right: 10px;
+}
+
+
+.text-center {
+    position: relative; 
+    top: 50%; 
+    transform: translateY(-50%); 
+    text-align: center; 
+}
+
+
+nav ul li a:hover {
+    text-decoration: underline;
+    text-underline-offset: 10px;
+    transition: all 0.3s ease;
+    color: #F79826;
+}
+
+.image-logo {
+    display: block;
+    margin: 0 auto;
+    bottom: 50px;
+    width: 120px;
+}
+
+.botao1 {
+    text-align: center; 
+    margin-top: 10px; 
+    
+}
+
+#b2 {
+    background-color: #317D24; /* Cor de fundo verde */
+    color: white; /* Cor do texto */
+    font-size: 14px;
+    padding: 10px 20px; /* Espaçamento interno */
+    cursor: pointer;
+    border: none;
+}
+
+#b2:hover {
+    background-color: #215e17; /* Cor de fundo mais escura ao passar o mouse */
+}

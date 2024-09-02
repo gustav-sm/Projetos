@@ -1,0 +1,143 @@
+
+.puzzle-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5px;
+    max-width: 300px;
+    margin: 20px auto;
+}
+
+.puzzle-piece {
+    width: 100%;
+    padding-top: 100%; 
+    background-size: 300%; 
+    cursor: pointer;
+}
+.empty {
+    background: none;
+    cursor: default;
+}
+body {
+    background-color: #d0f6c5;
+    font: 'Alice';
+    line-height: 1.6;
+    margin: 70px; 
+    padding: 0; 
+    overflow-x: hidden; 
+    
+}
+
+header{
+    margin-top: -70px;
+}
+
+.logo {
+    height: 79px;
+    width: 99px;
+}
+
+nav {
+    flex-grow: 1;
+    margin: 3 20px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li a {
+    padding: 20px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #317D24;
+    text-align: center;
+}
+
+.botao {
+    display: flex;
+    gap: 20px;
+    margin-right: 20px; /
+}
+.container{
+    height: 110px; 
+    margin-top: 50px; 
+}
+.botao #b1 {
+    background-color: white;
+    color: #317D24;
+    font-size: 18px;
+    padding: 10px 20px; 
+    cursor: pointer;
+    border: none;
+    height: 40px; 
+    width: 120px; 
+    gap: 201px;
+}
+
+.botao #b2 {
+    background-color: #317D24;
+    color: white;
+    font-size: 18px;
+    padding: 10px 20px;
+    cursor: pointer;
+    border: none;
+    height: 40px;
+    width: 190px;
+}
+
+.botao #b2 {
+    background-color: #317D24;
+    color: white;
+    font-size: 18px;
+    padding: 10px 20px; 
+    cursor: pointer;
+    border: none;
+    height: 40px; 
+    width: 190px;
+}
+
+h2 {
+    color: #317D24;
+    font-size: 50px;
+}
+
+.main {
+    max-width: 800px;
+    color: #317D24;
+    font-size: 20px;
+    margin: 20px; 
+}
+
+.main img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 20px;
+}
+
+.email {
+    display: flex;
+    align-items: center;
+    margin-top: 20px; 
+}
+
+.email input[type="email"] {
+    padding: 12px;
+    font-size: 18px;
+    border: 1px solid #317D24; 
+    flex: 1;
+    margin-right: 10px; 
+}
+
+
+
+
+.botao1 {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    margin-top: 20px; 
+}
+ 

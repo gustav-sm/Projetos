@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo da Memória</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="shortcut icon" href="../imagens/logo_dual.png" type="image/x-icon">
+</head>
+
+<body>
+
+
+    <header>
+        <div class="container">
+            <a href="index.html">
+                <img src="../imagens/logo_dual.png" alt="Logotipo Dual" class="logo">
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="guia.html">Guia de Ensino</a></li>
+                    <li><a href="atividades.html">Atividades</a></li>
+                    <li><a href="faqs.html">Feedbacks</a></li>
+                    <li><a href="sobre.html">Sobre nós</a></li>
+                </ul>
+            </nav>
+
+            <div class="botao">
+                <button id="b1"> <a href="login.html">Login</a></button>
+                <button id="b2"> <a href="cadastro.html">Cadastre-se</a></button>
+            </div>
+        </div>
+    </header>
+
+
+    <main>
+
+        <section class="memory-game">
+            <!-- Título do jogo -->
+            <h2>Jogo da Memória</h2>
+
+            <!-- Tabuleiro do jogo de memória -->
+            <div class="memory-game-board">
+                <!-- Carta de memória, cada carta tem uma frente e um verso -->
+                <div class="memory-card" data-framework="looney">
+                    <img class="front-face" src="../imagens/looney.jpeg" alt="Looeny">
+                    <img class="back-face" src="../imagens/memory.png" alt="JavaScript Badge">
+                </div>
+                <div class="memory-card" data-framework="looney">
+                    <img class="front-face" src="../imagens/looney.jpeg" alt="Looney">
+                    <img class="back-face" src="../imagens/memory.png" alt="JavaScript Badge">
+                </div>
+
+                <div class="memory-card" data-framework="papaleguas">
+                    <img class="front-face" src="../imagens/papaleguinhas.jpg" alt="papaleguinhas">
+                    <img class="back-face" src="../imagens/memory.png" alt="JavaScript Badge">
+                </div>
+                <div class="memory-card" data-framework="papaleguas">
+                    <img class="front-face" src="../imagens/papaleguinhas.jpg" alt="papaleguinhas">
+                    <img class="back-face" src="../imagens/memory.png" alt="JavaScript Badge">
+                </div>
+
+                <div class="memory-card" data-framework="taz">
+                    <img class="front-face" src="../imagens/tazinho.jpeg" alt="tazinho">
+                    <img class="back-face" src="../imagens/memory.png" alt="JavaScript Badge">
+                </div>
+                <div class="memory-card" data-framework="taz">
+                    <img class="front-face" src="../imagens/tazinho.jpeg" alt="tazinho">
+                    <img class="back-face" src="../imagens/memory.png" alt="JavaScript Badge">
+                </div>
+
+                <div class="memory-card" data-framework="pernalonga">
+                    <img class="front-face" src="../imagens/pernalonguinha.jpeg" alt="pernalonguinha">
+                    <img class="back-face" src="../imagens/memory.png" alt="JavaScript Badge">
+                </div>
+                <div class="memory-card" data-framework="pernalonga">
+                    <img class="front-face" src="../imagens/pernalonguinha.jpeg" alt="pernalonguinha">
+                    <img class="back-face" src="../imagens/memory.png" alt="JavaScript Badge">
+                </div>
+
+                <!-- Adicione mais pares de cartas conforme necessário -->
+            </div>
+        </section>
+    </main>
+
+    <script src="../js/game_memoria.js"></script>
+</body>
+
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/login.css">
+    <link rel="shortcut icon" href="../imagens/logo_dual.png" type="image/x-icon" />
+    <title>DUAL | Área de Login</title>
+</head>
+
+<body>
+
+    <div class="page">
+        <a href="index.html">
+            <img src="../imagens/logo_dual.png" alt="dual logo" class="image-logo" />
+        </a>
+        <form id="loginForm" class="formLogin">
+            <h1>Acesse sua conta</h1>
+            <p>Digite os seus dados de acesso no campo abaixo.</p>
+            <label for="login">CPF</label>
+            <input type="text" placeholder="Digite seu CPF" autofocus="true" id="login" name="login" required />
+            <label for="password">Senha</label>
+            <input type="password" placeholder="Digite seu senha" id="senha_login" name="senha_login" required />
+            <a href="/">Esqueci minha senha</a>
+            <input type="submit" value="Acessar" class="btn" id="submitButton" />
+
+        </form>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const loginForm = document.getElementById('loginForm');
+
+            loginForm.addEventListener('submit', function (event) {
+                event.preventDefault();
+
+                const login = loginForm.elements['login'].value;
+                const senha_login = loginForm.elements['senha_login'].value;
+
+                const lista_dados = JSON.parse(localStorage.getItem('pessoa')) || [];
+                const usuarioEncontrado = lista_dados.find(user => user.cpf === login && user.senha === senha_login);
+
+                if (usuarioEncontrado) {
+                    alert('Login bem-sucedido!');
+                    localStorage.setItem('score', usuarioEncontrado.score);
+                    localStorage.setItem('nome', usuarioEncontrado.nome);
+                    localStorage.setItem('cpf', usuarioEncontrado.cpf);
+                    window.location.href = 'index.html'; // Redireciona para a página "Olá"
+                } else {
+                    alert('Login ou senha incorretos.');
+                }
+
+                loginForm.reset();
+            });
+        });
+    </script>
+
+</body>
+
+</html>

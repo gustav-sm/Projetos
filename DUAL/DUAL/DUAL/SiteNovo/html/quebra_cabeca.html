@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quebra-Cabeça</title>
+    <link rel="stylesheet" href="../css/quebra_cabeca.css">
+    <link rel="shortcut icon" href="../imagens/logo_dual.png" type="image/x-icon">
+</head>
+
+<body>
+    <script src="../js/api_local.js"></script>
+    <div class="score-container">
+        <p class="score" id="nome"></p>
+        <p class="score" id="score"></p>
+
+        <p></p>
+    </div>
+    <header>
+        <div class="container">
+            <img src="../imagens/logo_dual.png" alt="Logotipo Dual" class="logo">
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="guia.html">Guia de Ensino</a></li>
+                    <li><a href="atividades.html">Atividades</a></li>
+                    <li><a href="faqs.html">Feedbacks</a></li>
+                    <li><a href="sobre.html">Sobre nós</a></li>
+                </ul>
+            </nav>
+
+            <div class="botao">
+                <button id="b1"> <a href="login.html">Login</a></button>
+                <button id="b2"> <a href="cadastro.html">Cadastre-se</a></button>
+            </div>
+        </div>
+    </header>
+
+
+    <main>
+
+        <div class="game_quebracabeca">
+            <section class="puzzle-game container mt-5">
+                <h2 class="text-center">Quebra-Cabeça</h2>
+                <div class="puzzle-container" id="puzzle-container"></div>
+                <div class="botao1">
+                    <button id="b2" onclick="shufflePuzzle()">Embaralhar</button>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script>
+        alert('No final do jogo, verifique sua pontuação');
+
+        const PUZZLE_SIZE = 3;
+        let emptyPosition = { row: PUZZLE_SIZE - 1, col: PUZZLE_SIZE - 1 };
+
+        function initPuzzle() {
+            const container = document.getElementById('puzzle-container');
+            container.innerHTML = '';
+            for (let row = 0; row < PUZZLE_SIZE; row++) {
+                for (let col = 0; col < PUZZLE_SIZE; col++) {
+                    const piece = document.createElement('div');
+                    piece.id = `piece-${row}-${col}`;
+                    piece.dataset.row = row;
+                    piece.dataset.col = col;
+                    piece.className = 'puzzle-piece';
+                    piece.style.backgroundImage = `url('../imagens/quebra.jpeg')`;
+                    piece.style.backgroundPosition = `${col * -100}% ${row * -100}%`;
+                    piece.onclick = () => movePiece(row, col);
+                    container.appendChild(piece);
+
+                    // Remover a classe 'empty' inicialmente
+                    if (row === emptyPosition.row && col === emptyPosition.col) {
+                        piece.classList.remove('empty');
+                    }
+                }
+            }
+        }
+
+        function movePiece(row, col) {
+            const isValidMove =
+                (Math.abs(emptyPosition.row - row) === 1 && emptyPosition.col === col) ||
+                (Math.abs(emptyPosition.col - col) === 1 && emptyPosition.row === row);
+
+            if (isValidMove) {
+                const emptyPiece = document.getElementById(`piece-${emptyPosition.row}-${emptyPosition.col}`);
+                const targetPiece = document.getElementById(`piece-${row}-${col}`);
+
+                // Troca a classe empty e o estilo background entre as peças
+                emptyPiece.classList.remove('empty');
+                emptyPiece.style.backgroundImage = targetPiece.style.backgroundImage;
+                emptyPiece.style.backgroundPosition = targetPiece.style.backgroundPosition;
+
+                targetPiece.classList.add('empty');
+                targetPiece.style.backgroundImage = '';
+                targetPiece.style.backgroundPosition = '';
+
+                // Atualiza a posição vazia para a posição da peça clicada
+                emptyPosition = { row, col };
+            }
+        }
+
+        function shufflePuzzle() {
+            for (let i = 0; i < 1000; i++) {
+                const row = emptyPosition.row;
+                const col = emptyPosition.col;
+                const moves = [
+                    { row: row - 1, col },
+                    { row, col: col + 1 },
+                    { row: row + 1, col },
+                    { row, col: col - 1 }
+                ];
+                const validMoves = moves.filter(pos => pos.row >= 0 && pos.row < PUZZLE_SIZE && pos.col >= 0 && pos.col < PUZZLE_SIZE);
+                const move = validMoves[Math.floor(Math.random() * validMoves.length)];
+                movePiece(move.row, move.col);
+            }
+        }
+
+        let score1 = 0
+        let score = localStorage.getItem('score');
+        parseInt(score)
+        score1 += 1;
+        let valore_atual = parseInt(score) + score1
+        localStorage.setItem('score', valore_atual)
+
+
+        const lista_dados = JSON.parse(localStorage.getItem('pessoa')) || [];
+        for (let i = 0; i < lista_dados.length; i++) {
+            if (localStorage.getItem('cpf') == lista_dados[i].cpf) {
+                console.log(lista_dados[i])
+                lista_dados[i].score = valore_atual
+
+            }
+        }
+        const dadosJSON = JSON.stringify(lista_dados);
+
+        localStorage.setItem('pessoa', dadosJSON);
+        document.addEventListener('DOMContentLoaded', initPuzzle);
+
+    </script>
+
+</body>
+
+</html>

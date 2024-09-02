@@ -1,0 +1,42 @@
+
+.guia-de-ensino{
+     text-align:left;
+     margin: 0%;
+     padding: 0%;
+     color: #317D24;
+     
+}
+
+h2 {
+    color: #317D24;
+    font-size: 50px;
+    margin-top: -10px;
+}
+
+.guia-de-ensino #p1{
+        max-width: 700px;
+      }
+
+h4{
+        font-size: 18px;
+      }
+
+.guia img{
+    display: flex;
+    margin-left: 600px;
+    width: 350px;
+    height: 300px;
+    margin-left: 800px;
+    margin-top: -1220px;
+      }
+
+      footer{
+        position: flex;
+        margin-top: 970px;
+      }
+
+      .botao a{
+        display: flex;
+        text-decoration: none;
+        color: black   
+    }

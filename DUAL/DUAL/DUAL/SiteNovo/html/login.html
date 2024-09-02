@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="../css/style.css"> 
+    <link rel="shortcut icon" href="../imagens/logo_dual.png" type="image/x-icon">
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <img src="../imagens/logo_dual.png" alt="Logotipo Dual" class="logo">
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="guia.html">Guia de Ensino</a></li>
+                    <li><a href="atividades.html">Atividades</a></li>
+                    <li><a href="faqs.html">Feedbacks</a></li>
+                    <li><a href="sobre.html">Sobre nós</a></li>
+                </ul>
+            </nav>
+
+            <div class="botao">
+                <button id="b1"> <a href="login.html">Login</a></button>
+                <button id="b2"><a href="cadastro.html">Cadastre-se</a></button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="main">
+
+            <!-- Formulário de Cadastro -->
+            <script src="api_local.js"></script>
+            <div id="login-form">
+                <h3>Login</h3>
+                <form id="loginForm" action="#" method="POST">
+                    <div class="form-group">
+                        <label for="login">Login:</label>
+                        <input type="text" id="login" name="login" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="senha_login">Senha:</label>
+                        <input type="password" id="senha_login" name="senha_login" required>
+                    </div>
+
+                    <button type="submit">Entrar</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+</body>
+<footer>
+    <img src="../imagens/coracao.png" alt="Coração" class="coracao">
+    <p>Feito com amor por Alice, Gustavo, Lorrana e Rafaela</p>
+</footer>
+</html>

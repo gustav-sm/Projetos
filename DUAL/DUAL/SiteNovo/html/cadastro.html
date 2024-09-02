@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastre-se</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="shortcut icon" href="../imagens/logo_dual.png" type="image/x-icon">
+</head>
+
+<body>
+
+    <header>
+        <div class="container"> 
+            <img src="../imagens/logo_dual.png" alt="Logotipo Dual" class="logo">
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="guia.html">Guia de Ensino</a></li>
+                    <li><a href="atividades.html">Atividades</a></li>
+                    <li><a href="faqs.html">Feedbacks</a></li>
+                    <li><a href="sobre.html">Sobre nós</a></li>
+                </ul>
+            </nav>
+    
+            <div class="botao">
+                <button id="b1"> <a href="login.html">Login</a></button>
+                <button id="b2"><a href="cadastro.html">Cadastre-se</a></button>
+            </div>
+        </div>
+    </header>
+
+<main>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const inserir_dados = document.getElementById('cadastroForm');
+            
+             
+            inserir_dados.addEventListener('submit', function(event) {
+                event.preventDefault(); 
+                const nome = inserir_dados.elements['nome'].value;
+                const sobrenome = inserir_dados.elements['sobrenome'].value;
+                const telefone = inserir_dados.elements['telefone'].value;
+                const cpf = inserir_dados.elements['cpf'].value;
+                const email_responsavel = inserir_dados.elements['email_responsavel'].value;
+                const confirmar_email = inserir_dados.elements['confirmar_email'].value;
+                const senha = inserir_dados.elements['senha'].value;
+                const confirmar_senha = inserir_dados.elements['confirmar_senha'].value;
+                const nome_crianca = inserir_dados.elements['nome_crianca'].value;
+                const data_nascimento = inserir_dados.elements['data_nascimento'].value;
+                
+                // Verifica se os emails coincidem
+                if (email_responsavel !== confirmar_email) {
+                    alert('Os emails não coincidem. Por favor, verifique.');
+                    return;
+                }
+
+                // Verifica se as senhas coincidem
+                if (senha !== confirmar_senha) {
+                    alert('As senhas não coincidem. Por favor, verifique.');
+                    return;
+                }
+                
+                // Objeto com os dados do cadastro
+                const dadosCadastro = {
+                    nome: nome,
+                    sobrenome: sobrenome,
+                    telefone: telefone,
+                    cpf: cpf,
+                    email_responsavel: email_responsavel,
+                    senha: senha,
+                    nome_crianca: nome_crianca,
+                    data_nascimento: data_nascimento,
+                    score:0
+                };
+            
+
+            let lista_dados_atual = JSON.parse(localStorage.getItem('pessoa')) || [];
+            
+            if (!Array.isArray(lista_dados_atual)) {
+            if (lista_dados_atual) {
+                lista_dados_atual = [lista_dados_atual]; // Converte o objeto único em um array com um único elemento
+            } else {
+                lista_dados_atual = []; // Inicializa como um array vazio se não houver dados ainda
+            }
+        }
+            lista_dados_atual.push(dadosCadastro);
+
+            const dadosJSON = JSON.stringify(lista_dados_atual);
+
+            localStorage.setItem('pessoa', dadosJSON);
+         
+
+                // Alerta de confirmação
+            alert('Dados do cadastro salvos localmente como JSON!');
+
+                // Resetando o formulário após salvar os dados
+            inserir_dados.reset();
+            });
+        });
+    </script>
+    <section class="main">
+       
+        <!-- Formulário de Cadastro -->
+
+            <h3>Cadastre-se</h3>
+            <form id="cadastroForm" action="#" method="POST">
+                <fieldset>
+                    <legend>Informação Responsável</legend>
+                    <div class="form-group">
+                        <label for="nome">Nome:</label>
+                        <input type="text" id="nome" name="nome" required>
+                    </div>
+        
+                    <div class="form-group">
+                        <label for="sobrenome">Sobrenome:</label>
+                        <input type="text" id="sobrenome" name="sobrenome" required>
+                    </div>
+        
+                    <div class="form-group">
+                        <label for="telefone">Telefone:</label>
+                        <input type="tel" id="telefone" name="telefone" pattern="[0-9]{10,11}" required>
+                    </div>
+        
+                    <div class="form-group">
+                        <label for="cpf">CPF:</label>
+                        <input type="text" id="cpf" name="cpf" pattern="[0-9]{3}\.[0-9]{3}\.[0-9]{3}-[0-9]{2}" required>
+                    </div>
+        
+                    <div class="form-group">
+                        <label for="email_responsavel">E-mail:</label>
+                        <input type="email" id="email_responsavel" name="email_responsavel" required>
+                    </div>
+        
+                    <div class="form-group">
+                        <label for="confirmar_email">Confirmar E-mail:</label>
+                        <input type="email" id="confirmar_email" name="confirmar_email" required>
+                    </div>
+        
+                    <div class="form-group">
+                        <label for="senha">Senha:</label>
+                        <input type="password" id="senha" name="senha" required>
+                    </div>
+        
+                    <div class="form-group">
+                        <label for="confirmar_senha">Confirmar Senha:</label>
+                        <input type="password" id="confirmar_senha" name="confirmar_senha" required>
+                    </div>
+                </fieldset>
+        
+                <fieldset>
+                    <legend>Informação Criança</legend>
+                    <div class="form-group">
+                        <label for="nome_crianca">Nome Completo da Criança:</label>
+                        <input type="text" id="nome_crianca" name="nome_crianca" required>
+                    </div>
+        
+                    <div class="form-group">
+                        <label for="data_nascimento">Data de Nascimento da Criança:</label>
+                        <input type="date" id="data_nascimento" name="data_nascimento" required>
+                    </div>
+                </fieldset>
+        
+                <button type="submit">Enviar</button>
+            </form>
+            </section>
+</main>
+
+ 
+
+</body>
+</html>
